@@ -52,7 +52,7 @@ WebpackArchivePlugin.prototype.apply = function(compiler) {
 		for(let asset in compiler.assets) {
 			if(compiler.assets.hasOwnProperty(asset)) {
 				for(let stream of streams) {
-					stream.append(fs.createReadStream(compiler.assets[asset].existsAt), {name: asset});
+					stream.append(fs.createReadStream(compiler.assets[asset].existsAt), {name: (options.entryNamePrefix||'')+asset});
 				}
 			}
 		}
